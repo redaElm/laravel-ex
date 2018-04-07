@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+
+    protected $redirectAfterLogout = '/';
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -22,6 +24,7 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
 
     /**
      * Where to redirect users after login / registration.
@@ -38,7 +41,32 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+
     }
+
+
+    public function redirectPath()
+    {
+        
+
+        if(auth()->user()->type === 'admin') {
+            return '/admin';
+        } else {
+            if(auth()->user()->choix == 1 && auth()->user()->active == true ) {
+                return '/default1';
+            } elseif(auth()->user()->choix == 2 && auth()->user()->active == true) {
+                return '/default2';
+            } elseif(auth()->user()->choix == 3 && auth()->user()->active == true) {
+                return '/default3';
+            }else {
+                return '/noactive';
+            }
+        }
+    }
+
+
+
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -61,12 +89,31 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
-    {
-        return User::create([
+    
+    protected function create(array $data)    {    
+
+        return User::create([            
             'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+            'email' => $data['email'],            
+            'password' => bcrypt($data['password']),            
+            'type' => User::DEFAULT_TYPE,
+            'active' => false,        
+            ]);    
     }
+
+    public function getLogin()
+    {
+        return view('auth/login');
+
+    }
+
+     public function getRegister()
+    {
+        return view('auth/register');
+
+    }
+
+
+
+
 }

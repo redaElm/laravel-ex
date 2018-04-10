@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Checkpermission
+class Checkdefault3
 {
     /**
      * Handle an incoming request.
@@ -16,23 +16,11 @@ class Checkpermission
      */
     public function handle($request, Closure $next,$guard = null)
     {
-
-        if (Auth::guard($guard)->check() && auth()->user()->type === 'admin') {
+         if (Auth::guard($guard)->check() && auth()->user()->choix == 3 && auth()->user()->active == true) {
 
         return $next($request);
         }
 
-        return redirect('/auth/login')->with('error','You have not admin access');   
-    
-
-
-
+         return redirect('/auth/login')->with('error','gggg');   
     }
-
-   
-
 }
-
-
-    
-

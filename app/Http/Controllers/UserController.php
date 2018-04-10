@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users= User::orderBy('id','DESC')->paginate(5);
-        return view('users.index',compact('users'))
+        return view('admin.users.index',compact('users'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('admin.users.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class UserController extends Controller
 
         ]);
          User::create($request->all());
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
                         ->with('success','user created successfully');
     }
 
@@ -60,8 +60,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $users= User::find($id);
-        return view('users.show',compact('users'));
+        $user= User::find($id);
+        return view('admin.users.show',compact('user'));
     }
 
     /**
@@ -72,8 +72,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $product= User::find($id);
-        return view('users.edit',compact('users'));
+        $user= User::find($id);
+        return view('admin.users.edit',compact('user'));
     }
 
     /**
@@ -86,13 +86,14 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
          $this->validate($request, [
-            'email' => 'required',
-            'type' => 'required',
-            'choix' => 'required',
+            
             'active' => 'required',
+            'choix' => 'required',
+            'type' => 'required',
+           
         ]);
         User::find($id)->update($request->all());
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
                         ->with('success','user updated successfully');
     }
 
@@ -105,7 +106,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
                         ->with('success','user deleted successfully');
     }
 }

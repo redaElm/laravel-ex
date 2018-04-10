@@ -14,7 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('auth/login','Auth\AuthController@getLogin');
+
+
+ Route::get('auth/login','Auth\AuthController@getLogin');
  Route::post('auth/login','Auth\AuthController@postLogin');
 
 
@@ -23,11 +25,36 @@ Route::post('auth/register','Auth\AuthController@postRegister');
 
 Route::get('auth/logout','Auth\AuthController@logout');
 
-Route::get('admin','HomeController@admin')->middleware('Checkpermission');
+Route::group(['middleware' => 'Checkpermission'], function () {
+	Route::get('admin/users','HomeController@admin');
+  	Route::resource('admin/users','UserController'); 
+ });
 
-Route::get('default1','HomeController@default1');
+Route::group(['middleware' => 'Checkdefault1'], function () {
+	Route::get('default1','HomeController@default1');
+  
+ });
 
-Route::resource('users','UserController');    
+Route::group(['middleware' => 'Checkdefault2'], function () {
+	Route::get('default2','HomeController@default2');
+  
+ });
+
+Route::group(['middleware' => 'Checkdefault3'], function () {
+	Route::get('default3','HomeController@default3');
+  
+ });
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('notactive','HomeController@notactive');
+	Route::get('notactive/profile','HomeController@notactiveprofile');
+  	
+  	
+ });
+
+
+
+   
 
 
 

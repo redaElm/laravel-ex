@@ -22,37 +22,36 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('myapp/index');
-    }
 
     public function admin()
     {
-        return view('myapp/admin');
+        return view('admin/users/index');
     }
 
     public function default1()
     {
-        return view('myapp/default1');
+        return view('default1');
     }
 
     public function default2()
     {
-        return view('myapp/default2');
+        return view('default2');
     }
 
     public function default3()
     {
-        return view('myapp/default3');
+        return view('default3');
     }
 
     public function notactive()
     {
-        return view('myapp/index');
+        return view('notactive/index');
     }
 
-
+    public function notactiveprofile()
+    {
+         return view('notactive/profile/index');
+    }
 
 
 }

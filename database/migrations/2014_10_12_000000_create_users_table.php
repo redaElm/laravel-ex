@@ -17,6 +17,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('type')->default('default');
+            $table->string('gamename');
+            $table->string('gamepass');
+            $table->boolean('active')->default(false);
+            $table->integer('choix');
+            $table->string('emailpypal');
             $table->rememberToken();
             $table->timestamps();
         });

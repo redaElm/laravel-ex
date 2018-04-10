@@ -1,0 +1,29 @@
+@media (min-width: 1024px) {
+  .page-wrapper {
+    margin-right: 260px !important;
+    margin-left: 0 !important;
+    } }
+
+.fix-sidebar .left-sidebar {
+    position: fixed;
+    right: 0 !important;
+}
+
+.sidebar-nav {
+    background: #fff;
+    padding: 15px 0 0px 74px !important;
+}
+
+.sidebar-nav > ul > li {
+    float: right !important;
+}
+
+.sidebar-nav > ul > li > a.active {
+
+     border-right: 3px solid #20aee3 !important;
+
+ }
+
+ .sidebar-nav > ul > li > a{
+ 	border-left: none !important;
+ }

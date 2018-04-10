@@ -6,13 +6,19 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+
+	const ADMIN_TYPE = 'admin';
+	const DEFAULT_TYPE = 'default';
+
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','type','choix','active','gamename','gamepass','emailpypal'
     ];
 
     /**
@@ -23,4 +29,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+
+
+
+    
+
+
+
 }

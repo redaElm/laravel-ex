@@ -11,7 +11,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 class AuthController extends Controller
 {
 
-    protected $redirectAfterLogout = '/';
+   //protected $redirectAfterLogout = '/auth/login';
+    //protected $redirectPath ='/admin';
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -31,7 +32,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    //protected $redirectTo = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -47,22 +48,20 @@ class AuthController extends Controller
 
     public function redirectPath()
     {
-        
 
-        if(auth()->user()->type === 'admin') {
+            if(auth()->user()->type == "admin") {
             return '/admin';
-        } else {
-            if(auth()->user()->choix == 1 && auth()->user()->active == true ) {
+            } elseif(auth()->user()->choix == 1 && auth()->user()->active == 1 ) {
                 return '/default1';
-            } elseif(auth()->user()->choix == 2 && auth()->user()->active == true) {
+            } elseif(auth()->user()->choix == 2 && auth()->user()->active == 1) {
                 return '/default2';
-            } elseif(auth()->user()->choix == 3 && auth()->user()->active == true) {
+            } elseif(auth()->user()->choix == 3 && auth()->user()->active == 1) {
                 return '/default3';
             }else {
-                return '/noactive';
+                return '/notactive';
             }
-        }
     }
+
 
 
 

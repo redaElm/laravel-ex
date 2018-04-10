@@ -1,4 +1,4 @@
-                            <div class="form-horizontal form-material">
+<div class="form-horizontal form-material">
                                     <div class="form-group">
                                         <label class="col-sm-12">تفعيل الحساب</label>
                                         <div class="col-sm-12">
@@ -37,4 +37,4 @@
                                             <button class="btn btn-success">تعديل</button>
                                         </div>
                                    </div>
-            			         </div>
+            			</div>

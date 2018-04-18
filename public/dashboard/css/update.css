@@ -27,3 +27,13 @@
  .sidebar-nav > ul > li > a{
  	border-left: none !important;
  }
+.card-no-border .card {
+ box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    direction: rtl;
+    border: 1px solid #ddd;
+}
+
+.table{
+        direction: initial !important;
+}

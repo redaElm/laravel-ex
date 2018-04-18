@@ -21,11 +21,16 @@ class CreateUsersTable extends Migration
             $table->string('gamename');
             $table->string('gamepass');
             $table->boolean('active')->default(false);
-            $table->integer('choix');
+            $table->integer('choix')->default(0);
+            $table->integer('userchoix');
             $table->string('emailpypal');
             $table->rememberToken();
             $table->timestamps();
         });
+
+         Artisan::call('db:seed', [
+        '--class' => DatabaseSeeder::class,
+        ]);
     }
 
     /**

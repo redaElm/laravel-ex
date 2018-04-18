@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+    <title>TribalBot</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('dashboard/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -32,9 +32,9 @@
         <div class="error-box">
             <div class="error-body text-center">
                 <h1>404</h1>
-                <h3 class="text-uppercase">Page Not Found !</h3>
-                <p class="text-muted m-t-30 m-b-30">YOU SEEM TO BE TRYING TO FIND HIS WAY HOME</p>
-                <a href="/" class="btn btn-info btn-rounded waves-effect waves-light m-b-40">Back to home</a> </div>
+                <h3 class="text-uppercase">هذه الصفحة غير موجودة</h3>
+                <p class="text-muted m-t-30 m-b-30">هل تحاول العودة الى الصفحة الرئيسية ؟</p>
+                <a href="/" class="btn btn-info btn-rounded waves-effect waves-light m-b-40">ارجع الى الصفحة الرئيسية</a> </div>
             <footer class="footer text-center">© 2018</footer>
         </div>
     </section>

@@ -50,7 +50,7 @@ class AuthController extends Controller
     {
 
             if(auth()->user()->type == "admin") {
-            return '/admin';
+            return '/admin/users';
             } elseif(auth()->user()->choix == 1 && auth()->user()->active == 1 ) {
                 return '/default1';
             } elseif(auth()->user()->choix == 2 && auth()->user()->active == 1) {

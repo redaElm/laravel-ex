@@ -23,6 +23,7 @@
                                             <th>Email</th>
                                             <th>Type</th>
                                             <th>Active</th>
+                                            <th>User Choix</th>
                                             <th>Choix</th>
                                             <th>Paypal</th>
                                             <th>Action</th>
@@ -35,13 +36,14 @@
                                             <td>{{ $user->email}}</td>
                                             <td>{{ $user->type}}</td>
                                             <td>{{ $user->active}}</td>
+                                            <td>{{ $user->userchoix}}</td>
                                             <td>{{ $user->choix}}</td>
                                             <td>{{ $user->paypal}}</td>
                                             <td>
                                                 <a class="btn waves-effect waves-light btn-primary" href="{{ route('admin.users.edit',$user->id) }}">تعديل</a>
-                                                {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline']) !!}
-                                                {!! Form::submit('حذف', ['class' => 'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
+                                                <form method="DELETE" action="{{ route('admin.users.destroy',$user->id) }}" style="display: inline;">
+                                                   <input class="btn btn-danger" type="submit" value="حذف">
+                                                </form>
                                             </td>
                                         </tr>
                                          @endforeach

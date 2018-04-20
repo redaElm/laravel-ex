@@ -21,6 +21,6 @@ class Checkdefault3
         return $next($request);
         }
 
-         return redirect('/auth/login')->with('error','gggg');   
+         return redirect('/auth/login')->with('error','عفوا انت لا تمتلك الصلاحية للدخول لهذا الرابط');   
     }
 }

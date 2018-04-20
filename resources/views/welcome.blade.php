@@ -38,7 +38,7 @@
                     <div class="menu_area">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <!-- Logo -->
-                            <a class="navbar-brand" href="#">frfrrr</a>
+                            <a class="navbar-brand" href="#">TribalBot</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                             <!-- Menu Area -->
                             <div class="collapse navbar-collapse" id="ca-navbar">
@@ -67,12 +67,12 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Wellcome Area Start ***** -->
-    <section class="wellcome_area clearfix" id="home" style="background-image: url(img/bg-img/welcome-bg.png);">
+    <section class="wellcome_area clearfix" id="home" style="background-image: url('index/img/bg-img/welcome-bg.png');">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 col-md">
                     <div class="wellcome-heading">
-                        <h2>Bot</h2>
+                        <h2>بوت</h2>
                         <h3>C</h3>
                         <h4>كل ماتحتاحه متوفر لدينا</h4>
                     </div>
@@ -82,7 +82,7 @@
         </div>
         <!-- Welcome thumb -->
         <div class="welcome-thumb wow fadeInDown" data-wow-delay="0.5s">
-            <img src="img/bg-img/welcome-img.png" alt="">
+            <img src="index/img/bg-img/welcome-img.png" alt="">
         </div>
     </section>
     <!-- ***** Wellcome Area End ***** -->
@@ -139,7 +139,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="special_description_img">
-                            <img src="img/bg-img/image1.jpg" alt="">
+                            <img src="index/img/bg-img/image1.png" alt="">
+                            <img src="index/img/bg-img/sword.png" alt="">
                         </div>
                     </div>
                     <div class="col-lg-6 col-xl-5 ml-xl-auto">
@@ -390,7 +391,7 @@
                 <div class="col-md-8">
                     <div class="membership-description">
                         <h2>ماذا تنتظر</h2>
-                        <p>Find the perfect plan for you — 100% satisfaction guaranteed.</p>
+                        <p>استفد من أفضل المميزات والخدمات بجودة عالية وبكفائة تصل الى %100</p>
                     </div>
                 </div>
                 <div class="col-md-4">

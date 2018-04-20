@@ -94,7 +94,7 @@ class UserController extends Controller
         ]);
         User::find($id)->update($request->all());
         return redirect()->route('admin.users.index')
-                        ->with('success','user updated successfully');
+                        ->with('success','تم تعديل الحساب بنجاح');
     }
 
     /**
@@ -107,6 +107,6 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return redirect()->route('admin.users.index')
-                        ->with('success','user deleted successfully');
+                        ->with('success','تم حذف الحساب بنجاح');
     }
 }

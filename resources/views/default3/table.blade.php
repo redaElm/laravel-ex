@@ -11,7 +11,7 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="{{ url('default3') }}" aria-expanded="false"><span class="hide-menu"> لوحة لبتحكم </span> <i class="fa fa-tachometer"> </i></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="{{ url('default3/profile') }}" aria-expanded="false"><span class="hide-menu"> الملف الشخصي </span> <i class="fa fa-user-circle-o"> </i></a>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('default3.profile.edit',Auth::user()->id)}}" aria-expanded="false"><span class="hide-menu"> الملف الشخصي </span> <i class="fa fa-user-circle-o"> </i></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{{ url('default3/table') }}" aria-expanded="false"><span class="hide-menu"> جدول المهام </span> <i class="fa fa-table"> </i></a>
                         </li>

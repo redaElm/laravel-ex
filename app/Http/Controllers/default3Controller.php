@@ -16,7 +16,7 @@ class default3Controller extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -81,8 +81,8 @@ class default3Controller extends Controller
            
         ]);
         User::find($id)->update($request->all());
-        return redirect()->route('default3.profile.edit',compact('user'))
-                        ->with('success','user updated successfully');
+        return redirect()->route('default3.profile.edit',$id)
+                        ->with('success','تم تعديل الحساب بنجاح');
 
     }
 

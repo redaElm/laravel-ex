@@ -50,6 +50,8 @@
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item"> <a class="nav-link active show" id="home-tab" data-toggle="tab" href="#home5" role="tab" aria-controls="home5" aria-expanded="true" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">قطارات</span></a> </li>
                                     <li class="nav-item"> <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile5" role="tab" aria-controls="profile" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">تنظيفات</span></a></li>
+
+                                    <li class="nav-item"> <a class="nav-link" id="profile-tab" data-toggle="tab" href="#p3" role="tab" aria-controls="profile" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">كسورات</span></a></li>
                                     
                                 </ul>
                                 <div class="tab-content tabcontent-border p-20" id="myTabContent">
@@ -101,22 +103,35 @@
                                         <textarea class="form-control" rows="5" name="village" id="village"></textarea>
                                         </div>
         
-                                        <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success" id="ok">تنفيذ</button>
-                                        </div>
-                                        </div>
+                                        
 
                                     </div>
                                     <div class="tab-pane fade" id="profile5" role="tabpanel" aria-labelledby="profile-tab">
                                         <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                                    </div>
+
+
+
+                                    <div role="tabpanel" class="tab-pane fade show active" id="p3" aria-labelledby="home-tab">
+                                        
                                     </div>                                   
                                 </div>
 
+
+
+
+<!--*************************************-->
+
                                         <div class="form-group">
-                                        <label>الهدف </label>
-                                        <textarea class="form-control" rows="5" name="target" id="target"></textarea>
+                                            <label>الهدف </label>
+                                            <textarea class="form-control" rows="5" name="target" id="target"></textarea>
                                         </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                            <button class="btn btn-success" id="ok">تنفيذ</button>
+                                            </div>
+                                        </div>
+
                             </div>
                         </div>
                     </div>

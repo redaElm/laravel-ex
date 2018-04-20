@@ -63,13 +63,3 @@ Route::group(['middleware' => 'Checkdefault3'], function () {
 
    
 
-
-
-
-Route::get('ab', function()
-{
-	return view('layouts/dashboardAdmin');
-}
-
-
-);

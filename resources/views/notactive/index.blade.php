@@ -36,8 +36,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title pull-right">حسابك غير مفعل !! لتفعيله اتبع الخطوات التالية :</h4>
-                               	<h5>hhh</h5>
-                                <h5>hhh</h5>
+                               	<h5>اذهب الى الملف الشخصي و بعد ذلك</h5>
+                                <h5></h5>
                             </div>
                         </div>
                     </div>

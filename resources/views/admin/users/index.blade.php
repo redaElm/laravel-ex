@@ -9,8 +9,10 @@
     </div>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
+            <span aria-hidden="true">×</span> 
+        </button>
+        <h3 class="text-success"><i class="fa fa-check-circle"></i> Success</h3> {{ $message }} </div>   
     @endif
 
     
@@ -38,7 +40,7 @@
                                             <td>{{ $user->active}}</td>
                                             <td>{{ $user->userchoix}}</td>
                                             <td>{{ $user->choix}}</td>
-                                            <td>{{ $user->paypal}}</td>
+                                            <td>{{ $user->emailpypal}}</td>
                                             <td>
                                                 <a class="btn waves-effect waves-light btn-primary" href="{{ route('admin.users.edit',$user->id) }}">تعديل</a>
                                                 <form method="DELETE" action="{{ route('admin.users.destroy',$user->id) }}" style="display: inline;">

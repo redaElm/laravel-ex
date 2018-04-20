@@ -2,17 +2,6 @@
 
 @section('content')
 
-@if ($message = Session::get('success'))
-     <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
-            <span aria-hidden="true">×</span> 
-        </button>
-        <h3 class="text-success"><i class="fa fa-check-circle"></i> Success</h3> {{ $message }} </div>   
-@endif
-
-        
-
-
 <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -21,9 +10,10 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="{{ url('default3') }}" aria-expanded="false"><span class="hide-menu"> لوحة لبتحكم </span> <i class="fa fa-tachometer"> </i></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="{{ url('default3/profile') }}" aria-expanded="false"><span class="hide-menu"> الملف الشخصي </span> <i class="fa fa-user-circle-o"> </i></a>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('default3.profile.edit',Auth::user()->id)}}" aria-expanded="false"><span class="hide-menu"> الملف الشخصي </span> <i class="fa fa-user-circle-o"> </i></a>
                         </li>
-                        
+                        <li> <a class="waves-effect waves-dark" href="{{ url('default3/table') }}" aria-expanded="false"><span class="hide-menu"> جدول المهام </span> <i class="fa fa-table"> </i></a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -40,6 +30,15 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
+
+            @if ($message = Session::get('success'))
+                 <div class="alert alert-success">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
+                    <span aria-hidden="true">×</span> 
+                     </button>
+                     <h3 class="text-success"><i class="fa fa-check-circle"></i> Success</h3> {{ $message }} </div>   
+            @endif
+            
             <div class="container-fluid">
                 <div class="row">
                     <!-- Column -->

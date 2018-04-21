@@ -55,7 +55,7 @@
                                      <small class="text-muted"> ( في لعبة حرب القبائل)  اسم المستخدم : </small>
                                     <h5 style="direction: ltr;">{{ Auth::user()->gamename }} </h5>
                                      <small class="text-muted"> ( من 1 الى 3 ( رقم الخدمة المختارة : </small>
-                                    <h5 style="direction: ltr;">{{ Auth::user()->choix }} </h5>
+                                    <h5 style="direction: ltr;">{{ Auth::user()->userchoix }} </h5>
                                 </center>
                             </div>
                         </div>

@@ -40,11 +40,11 @@
                                         <div class="row">
                                             <div class="form-group col-4 ">
                                             <label>سرعة اللعبة </label>
-                                            <input class="form-control" type="text" name="gameSpeed" value="1" id="gameSpeed">
+                                            <input class="form-control" type="text" name="gameSpeed" value="1.5" id="gameSpeed">
                                             </div>
                                             <div class="form-group col-4 ">
                                             <label>سرعة الوحدة</label>
-                                            <input class="form-control" type="text" name="unitSpeed" value="1" id="unitSpeed">
+                                            <input class="form-control" type="text" name="unitSpeed" value="0.66" id="unitSpeed">
                                             </div>
                                         </div>
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -60,43 +60,27 @@
                                         
                                         <div class="row">
                                             <div class="form-group col-3 ">
-                                            <label>hgrv </label>
-                                            <input class="form-control" type="text" name="" value="1" id="">
-                                            </div>
-                                            <div class="form-group col-3 ">
-                                            <label>hhhh</label>
-                                            <input class="form-control" type="text" name="" value="1" id="">
-                                            </div>
-                                            <div class="form-group col-3 ">
-                                            <label>hgrv </label>
-                                            <input class="form-control" type="text" name="" value="1" id="">
-                                            </div>
-                                            <div class="form-group col-3 ">
-                                            <label>hhhh</label>
-                                            <input class="form-control" type="text" name="" value="1" id="">
+                                            <label>عدد القرى لكل قرية هدف</label>
+                                            <input class="form-control" type="text" name="" value="1" id="multipl">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-6">
                                             <label>توقيت الوصول </label>
-                                            <input type="datetime-local" class="form-control" id="time" value="2018-04-18T20:00:00" step="1" name="timearr">
+                                            <input type="datetime-local" class="form-control" id="arrivalTime" value="2018-04-18T20:00:00" step="1" name="">
                                             </div>
                                             <div class="form-group col-4">
                                             <label>الوحدة</label>
-                                            <select class="form-control form-control-line" name="speed">
-                                                <option value="">محطمة</option>
+                                            <select class="form-control form-control-line" name="speed" id="speed">
+                                                <option value="1800">محطمة</option>
                                                 <option value="2100">نبيل</option>
                                                 <option value="">فارس/رمح</option>
-                                                <option value="">سيف</option>
+                                                <option value="1320">سيف</option>
                                                 <option value="">ثقيل</option>
                                                 <option value="">خفيف</option>
                                                 <option value="">كشافة</option>
                                             </select>
                                             </div> 
-                                            <div class="form-group col-2">
-                                            <label>توقيت الوصول </label>
-                                            <input type="text" class="form-control" id="doubl" value="1" name="db">
-                                            </div>
                                         </div>
                                         <div class="form-group">
                                         <label>القرية  </label>
@@ -151,13 +135,43 @@
 
 <script type="text/javascript">
 
+    
 
     $("#ok").click(function(){
-        var name="000 - (543|452) K45";
-       var regexp=/(\d+|\d+)/g;
-       var matches =name.match(regexp);
+        var village = $('#village').val().split('\n');
+        var target = $('#target').val().split('\n');
+        var d=[];
+        var launchTim= [];
         
-console.log(matches);
+
+       if (verifierLingnes()== true) {
+        for (var i = 0; i < village.length; i++) {
+            d[i]=Distance(position(village[i]),position(target[i]));
+            launchTim[i]=launchTime($('#arrivalTime').val(), d[i], $('#unitSpeed').val(), $('#gameSpeed').val(), $('#speed').val());
+            console.log(d[i]);
+            console.log(position(village[i])+" To "+position(target[i])+" / time : "+launchTim[i]);
+        }
+        
+
+       }else if(verifierForMultiplLignes () == true ){
+        var multipl=$('#multipl').val();
+        var c =0;
+        for (var i = 0; i < village.length; i+=Number(multipl)) {
+            for (var j = 0; j < multipl; j++) {
+
+                d[i+j]=Distance(position(village[i+j]),position(target[c]));
+                launchTim[i+j]=launchTime($('#arrivalTime').val(), d[i+j], $('#unitSpeed').val(), $('#gameSpeed').val(), $('#speed').val());
+
+                    console.log(position(village[i+j])+" To "+position(target[c])+" / time : "+launchTim[i+j]);
+            }
+            c++;
+            
+        }
+
+       }
+
+
+
 
        /* var name="000 - (543|452) K45";
         var regexp = \{\d+|\d+\}/i;
@@ -188,19 +202,13 @@ var snob=35*60;
 var knight=10*60;
 
 function Distance(village,target) {
-    return roundUp(Math.sqrt(Math.pow(village[0]-target[0],2)+Math.pow(village[1]-target[1],2)),3.5);
+    return roundUp(Math.sqrt(Math.pow(Number(village[1])-Number(target[1]),2)+Math.pow(Number(village[2])-Number(target[2]),2)),4);
 
 }
 
 function position(name){
-    var regexp = /d+|d+/i;
-    var result=name.match(regexp);
-    /*var a=[];
-    name=name.replace(" ", ""); 
-    var p = name.indexOf("|"); 
-    a[0] = name.substr(p - 3, 3); 
-    a[1] = name.substr(p+1, 3);*/
-    return a;
+    var matches = name.match(/(\d+)\|(\d+)/);
+    return matches;
 }
 
 
@@ -209,10 +217,12 @@ function launchTime(arrivalTime, distance, unitSpeed, gameSpeed, speed){
   arrivalTime = new Date(arrivalTime);
   arrivalTime = arrivalTime.getTime() / 1000;
   var time = arrivalTime - seconds; 
-  return new Date(time * 1000);
+   return new Date(time * 1000);
 }
 
-
+/*var name = "000 - (543|452) K45";
+var matches = name.match(/(\d+)\|(\d+)/);
+console.log('var x = ' + matches[1] + ';\nvar y = ' + matches[2] + ';');*/
 
 
 
@@ -245,7 +255,28 @@ function verifierLingnes () {
         }
 
         return true;
+}
 
+function verifierForMultiplLignes () {
+    $('#village').val().trim();
+    $('#target').val().trim();
+   var lines1 = $('#village').val().split('\n');
+   var lines2 = $('#target').val().split('\n');
+   for(var i = 0;i < lines1.length;i++){
+        if (lines1[i].indexOf("|") == -1) {
+            return false;
+        }
+   }
+   for(var i = 0;i < lines2.length;i++){
+        if (lines2[i].indexOf("|") == -1) {
+            return false;
+        }
+   }
+        if (lines1.length / lines2.length != $('#multipl').val() ) {
+            return false;
+        }
+
+        return true;
 }
 
 
